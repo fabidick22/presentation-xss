@@ -24,16 +24,62 @@
 	<body>
 		<div class="reveal">
 			<div class="slides">
-				<section>¿Qué es la XSS? </section>
-				<section>¿Para qué sirve? </section>
-				<section>Tipos de XSS </section>
-				<section>Ejemplos</section>
-				<section>Entorno controlado</section>
-				<section>¿Cómo protegerse? </section>
 				<section>
-					Ejemplo Real
+					<h1></h1>
+					<h3></h3>
+					<p>
+						<img data-src="images/warRoot_tra.png" alt="" style="background:none; border:none; box-shadow:none;" width="600" height="300">
+					</p>
+					<p>
+						<code><small>cat <a href="http://github.com/fabidick22">Dickson Armijos R. </a> | grep "Cross-site scripting"</small></code>
+					</p>
+
+				</section>
+
+				<section>
+					<h1>Reveal.js</h1>
+					<h3>The HTML Presentation Framework</h3>
+					<p>
+						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h1>¿Qué es la XSS?</h1>
+				</section>
+
+				<section>
+					<h1>¿Para qué sirve?</h1>
+				</section>
+
+				<section>
+					<h1>Tipos de XSS</h1>
+					<p class="fragment fade-up"></p>
+					<p class="fragment fade-up">grow</p>
+					<p class="fragment fade-up">grow</p>
+				</section>
+
+				<section data-background-image="images/slider-red.jpg" data-background-transition="zoom">
+					<section>
+						<h1>Ejemplos</h1>
+					</section>
+					<section>
+						<button></button>
+						<iframe data-src="http://172.19.18.72/" height="1000" width="800">
+						</iframe>
+					</section>
+				</section>
+
+				<section>
+					<h1>Entorno controlado</h1>
+				</section>
+
+				<section data-background-image="images/slider-blue.jpg" data-background-transition="zoom">¿Cómo protegerse? </section>
+				<section>
+					<h3>Ejemplo Real</h3>
 					<iframe src="http://localhost:8000/" width="1400" height="800"></iframe>
 				</section>
+
 			</div>
 		</div>
 
@@ -45,13 +91,29 @@
 			// - https://github.com/hakimel/reveal.js#configuration
 			// - https://github.com/hakimel/reveal.js#dependencies
 			Reveal.initialize({
+                parallaxBackgroundImage: './images/comand-line1.jpg',
+                parallaxBackgroundSize: '2500px 1400px',
+                parallaxBackgroundHorizontal: 50,
+                parallaxBackgroundVertical: 30,
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } }
+					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
 				]
 			});
+		</script>
+		<script>
+            function myFunction() {
+                var txt;
+                var person = prompt("IP Server exploit:", "http://172.19.18.72");
+                if (person == null || person == "") {
+                    txt = "User cancelled the prompt.";
+                } else {
+                    txt = "Hello " + person + "! How are you today?";
+                }
+                document.getElementById("demo").innerHTML = txt;
+            }
 		</script>
 	</body>
 </html>
