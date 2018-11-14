@@ -4,13 +4,16 @@
 		<meta charset="utf-8">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-		<title>reveal.js</title>
+		<title>XSS</title>
 
 		<link rel="stylesheet" href="css/reveal.css">
 		<link rel="stylesheet" href="css/theme/black.css">
 
 		<!-- Theme used for syntax highlighting of code -->
 		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Theme used for title-footer -->
+		<link rel="stylesheet" href="plugin/title-footer/title-footer.css">
 
 		<!-- Printing and PDF exports -->
 		<script>
@@ -30,17 +33,27 @@
 					<p>
 						<img data-src="images/warRoot_tra.png" alt="" style="background:none; border:none; box-shadow:none;" width="600" height="300">
 					</p>
-					<p>
-						<code><small>cat <a href="http://github.com/fabidick22">Dickson Armijos R. </a> | grep "Cross-site scripting"</small></code>
-					</p>
+					<div id="typed-strings">
+						<h3><code style="color: #ff3462">echo</code> "<a href="http://github.com/fabidick22">Dickson Armijos R.</a>"</h3>
+						<h3><code style="color: #ff3462">XSS</code>  --help | <code style="color: #ff3462"> grep </code> "Cross-site scripting"</h3>
+					</div>
+					<span id="typed"></span>
 
 				</section>
-
+				<style>
+					.line { display: block; }
+					.line.focus { background: yellow; }
+				</style>
 				<section>
-					<h1>Reveal.js</h1>
-					<h3>The HTML Presentation Framework</h3>
-					<p>
-						<small>Created by <a href="http://hakim.se">Hakim El Hattab</a> and <a href="https://github.com/hakimel/reveal.js/graphs/contributors">contributors</a></small>
+  <pre><code data-trim>
+  1. XSS
+  alert('hi');
+  </code></pre>
+					<p class="fragment" data-code-focus="1">
+						Hablar de ....
+					</p>
+					<p class="fragment" data-code-focus="1-2">
+						Hablar de ....
 					</p>
 				</section>
 
@@ -116,7 +129,17 @@
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
 					{ src: 'plugin/notes/notes.js', async: true },
-					{ src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    // { src: 'plugin/highlight/highlight.js', async: true, callback: function() { hljs.initHighlightingOnLoad(); } },
+                    { src: 'plugin/title-footer/title-footer.js', async: true, callback: function() { title_footer.initialize("Cross-site scripting - Ejecución de comandos en sitios cruzados"); } },
+                    { src: 'plugin/typed/typed.js', async: false , callback: function() { callTypedJs(); }},
+                    { src: 'plugin/pack/highlight.pack.js' },
+					{
+                        src: 'node_modules/reveal-code-focus/reveal-code-focus.js',
+                        async: true,
+                        callback: function() {
+                            RevealCodeFocus();
+                        }
+                    }
 				]
 			});
 		</script>
