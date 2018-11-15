@@ -29,8 +29,6 @@
 		<div class="reveal">
 			<div class="slides">
 				<section>
-					<h1></h1>
-					<h3></h3>
 					<p>
 						<img data-src="images/warRoot_tra.png" alt="" style="background:none; border:none; box-shadow:none;" width="600" height="300">
 					</p>
@@ -86,10 +84,6 @@ XSS
 							<li>Explotan la confianza que un usuario tiene en un sitio en particular.</li>
 							<li>Ocurren cuando un atacante usa una aplicación web para enviar código malicioso a un usuario final diferente. </li>
 						</ul>
-					</section>
-
-					<section>
-						<img data-src="https://ciberseguridad.digital/wp-content/uploads/2016/12/Diagram-Describing-Blind-XSS-Attack.gif" alt="" data-background-color="#ff362f">
 					</section>
 				</section>
 
@@ -155,6 +149,16 @@ http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;
 				</section>
 
 				<section>
+					<h1>Herramientas</h1>
+					<ul>
+						<li><a href="https://github.com/s0md3v/XSStrike">XSStrike</a></li>
+						<li><a href="https://github.com/voku/anti-xss">anti-xss</a></li>
+						<li><a href="https://github.com/mandatoryprogrammer/xsshunter">XSS Hunter Source Code</a></li>
+						<li><a href="https://github.com/Netflix-Skunkworks/sleepy-puppy">sleepy-puppy</a></li>
+					</ul>
+				</section>
+
+				<section>
 					<section>
 						<h1>Entorno controlado</h1>
 					</section>
@@ -183,6 +187,15 @@ http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;
 						</ul>
 					</section>
 					<section>
+						<pre><code>
+var x = document.createElement(&#x22;input&#x22;);
+ x.setAttribute(&#x22;name&#x22;, &#x22;company_name&#x22;);
+ x.setAttribute(&#x22;value&#x22;, &#x27;&#x3C;%=Encoder.encodeForJS(companyName)%&#x3E;&#x27;);
+ var form1 = document.forms[0];
+ form1.appendChild(x);
+						</code></pre>
+					</section>
+					<section>
 						<h1>Base de Datos</h1>
 						<pre><code data-trim>
 DECLARE @T varchar(255),@C varchar(4000)
@@ -202,6 +215,34 @@ DECLARE Table_Cursor CURSOR FOR
 						<h1>Server</h1>
 						<p class="fragment fade-up"><a href="https://developer.mozilla.org/es/docs/Web/HTTP/CSP">Content Security Policy</a></p>
 						<p class="fragment fade-up"><a href="https://developer.mozilla.org/es/docs/Web/HTTP/Headers/X-XSS-Protection">X-XSS-Protection</a></p>
+					</section>
+					<section>
+						<p>Capa de seguridad adicional que ayuda a prevenir y mitigar algunos tipos de ataque, incluyendo Cross Site Scripting (XSS) y ataques de inyección de datos.</p>
+						<pre><code>
+Content-Security-Policy: policy
+						</code></pre>
+						<pre><code>
+	&#x3C;meta http-equiv=&#x22;Content-Security-Policy&#x22; content=&#x22;default-src &#x27;self&#x27;; img-src https://*; child-src &#x27;none&#x27;;&#x22;&#x3E;
+						</code></pre>
+					</section>
+					<section>
+						<pre><code>
+X-XSS-Protection: 1; mode=block
+						</code></pre>
+						<p>PHP</p>
+						<pre><code>
+header("X-XSS-Protection: 1; mode=block");
+						</code></pre>
+						<p>Apache (.htaccess)</p>
+						<pre><code>
+&#x3C;IfModule mod_headers.c&#x3E;
+Header set X-XSS-Protection &#x22;1; mode=block&#x22;
+&#x3C;/IfModule&#x3E;
+						</code></pre>
+					</section>
+					<section>
+						<h1>Firewall</h1>
+						<p>Zona perimetral</p>
 					</section>
 				</section>
 
