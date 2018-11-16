@@ -116,6 +116,12 @@ XSS
 $username = $_GET[&#x27;username&#x27;];
 echo &#x27;&#x3C;div class=&#x22;header&#x22;&#x3E; Welcome, &#x27; . $username . &#x27;&#x3C;/div&#x3E;&#x27;;
 						</code></pre>
+						<p class="fragment" data-code-focus="1">
+							Obtener parametro
+						</p>
+						<p class="fragment" data-code-focus="2">
+							Presentar datos obtenidos
+						</p>
 						<pre><code>
 http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;Javascript&#x22;&#x3E;alert(&#x22;You&#x27;ve been attacked!&#x22;);&#x3C;/Script&#x3E;
 						</code></pre>
@@ -139,11 +145,11 @@ http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;
 						<h1>Ejemplos</h1>
 					</section>
 					<section>
-						<iframe data-src="examples/jquery-xss-demo/index.html" height="1000" width="800">
+						<iframe data-src="examples/jquery-xss-demo/index.html" height="750" width="1000">
 						</iframe>
 					</section>
 					<section>
-						<iframe data-src="examples/xss-ransomware-download-example/index.html" height="1000" width="800">
+						<iframe data-src="examples/xss-ransomware-download-example/index.html" height="750" width="1000">
 						</iframe>
 					</section>
 				</section>
@@ -187,13 +193,16 @@ http://trustedSite.example.com/welcome.php?username=&#x3C;Script Language=&#x22;
 						</ul>
 					</section>
 					<section>
-						<pre><code>
+						<pre><code data-trim>
 var x = document.createElement(&#x22;input&#x22;);
  x.setAttribute(&#x22;name&#x22;, &#x22;company_name&#x22;);
  x.setAttribute(&#x22;value&#x22;, &#x27;&#x3C;%=Encoder.encodeForJS(companyName)%&#x3E;&#x27;);
  var form1 = document.forms[0];
  form1.appendChild(x);
 						</code></pre>
+						<p class="fragment" data-code-focus="1"></p>
+						<p class="fragment" data-code-focus="2-3"></p>
+						<p class="fragment" data-code-focus="4-5"></p>
 					</section>
 					<section>
 						<h1>Base de Datos</h1>
@@ -222,7 +231,7 @@ DECLARE Table_Cursor CURSOR FOR
 Content-Security-Policy: policy
 						</code></pre>
 						<pre><code>
-	&#x3C;meta http-equiv=&#x22;Content-Security-Policy&#x22; content=&#x22;default-src &#x27;self&#x27;; img-src https://*; child-src &#x27;none&#x27;;&#x22;&#x3E;
+&#x3C;meta http-equiv=&#x22;Content-Security-Policy&#x22; content=&#x22;default-src &#x27;self&#x27;; img-src https://*; child-src &#x27;none&#x27;;&#x22;&#x3E;
 						</code></pre>
 					</section>
 					<section>
@@ -243,6 +252,12 @@ Header set X-XSS-Protection &#x22;1; mode=block&#x22;
 					<section>
 						<h1>Firewall</h1>
 						<p>Zona perimetral</p>
+						<ul>
+							<li>AppArmor</li>
+							<li>ModSecurity</li>
+							<li>Systrace</li>
+							<li>Zorp</li>
+						</ul>
 					</section>
 				</section>
 
@@ -270,6 +285,7 @@ Header set X-XSS-Protection &#x22;1; mode=block&#x22;
                 parallaxBackgroundSize: '2200px 1100px',
                 parallaxBackgroundHorizontal: 70,
                 parallaxBackgroundVertical: 50,
+                allottedTime: 30 * 60 * 1000, // 30 minutes
 				dependencies: [
 					{ src: 'plugin/markdown/marked.js' },
 					{ src: 'plugin/markdown/markdown.js' },
@@ -284,7 +300,8 @@ Header set X-XSS-Protection &#x22;1; mode=block&#x22;
                         callback: function() {
                             RevealCodeFocus();
                         }
-                    }
+                    },
+					{src: 'plugin/elapsed-time-bar/elapsed-time-bar.js'}
 				]
 			});
 		</script>
